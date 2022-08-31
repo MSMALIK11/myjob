@@ -1,0 +1,135 @@
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+
+.mt-2{
+  margin-top: 2px;
+}
+.mt-4{
+  margin-top: 4px;
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+.mt-12{
+  margin-top: 12px;
+}
+.mt-14{
+  margin-top: 14px;
+}
+.mt-16{
+  margin-top: 16px;
+}
+.mt-20{
+  margin-top: 20px;
+}
+
+.navBarWraper
+{
+  width: 100%;
+  background-color:#0078D4;
+  height: 45px;
+
+
+
+}
+.nav{
+  display: flex;
+  /* justify-content: space-between; */
+
+
+  
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.navBarWraper .logo h5{
+  color: #fff;
+  letter-spacing: 1.6px;
+font-weight: 500;
+
+}
+.menuBtn{
+  display: flex;
+  gap: 10px;
+}
+.outletHome{
+  position: absolute;
+  top:55px ;
+  left: 215px;
+
+  width: 100%;
+  height: 100vh;
+  padding: 0 20px;
+  z-index: 20;
+  
+}
+
+
+.search{
+  width: 40vw;
+
+}
+
+.sideBarWraper{
+ 
+  width: 205px;
+  height: 100vh;
+  /* border-right: 2px solid #eee; */
+  transition: all 0.4s ;
+}
+.mobilenav
+{
+  width: 45px;
+  height: 100vh;
+  border-right: 2px solid #eee;
+  transition: all 0.4s linear;
+}
+
+.pd{
+  padding: 5px 10px;
+}
+.addJobBox{
+  margin: 15px 20px;
+  display:flex;
+  flex-direction: column;
+gap: 10px;
+}
+.primary-btn{
+  display: inline;
+ width: 50px;
+}
+.button-box{
+  display: flex;
+  gap: 30px;
+}
+.width{
+  width: 352px;
+}
+.label{
+font-size: 14px;
+  font-weight:700;
+  color: #201F1E;
+  letter-spacing: 1px;
+}
+
+.Breadcrumb{
+  margin-bottom: 40px;
+  /* background-color: #eee; */
+}
+.data-store-search{
+ width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  align-items: center;
+
+}
