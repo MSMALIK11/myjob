@@ -1,7 +1,16 @@
 import React from 'react';
-import { Nav, INavLink, INavStyles, INavLinkGroup } from '@fluentui/react/lib/Nav';
+import { Nav, INavLink, INavStyles, INavLinkGroup } from '@fluentui/react';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const SideBar = ({active}) => {
+ 
+  const location=useLocation();
+
+  const key=location.pathname.split('').splice(1).join('')
+  console.log('key ',key )
+
+  const navigate=useNavigate();
     const navLinkGroups = [
         {
           links: [
@@ -34,18 +43,20 @@ const SideBar = ({active}) => {
               name: !active?'Dicsover':"",
               url: '',
               icon: "Home",
-              key: 'key1',
+              key: '/',
               target: '_blank',
-              title: '',
+              title: 'job',
+              onClick: () => navigate('/')
             
             },
             {
               name: 'Masking',
               url: '',
               icon: "passwordField",
-              key: 'key2',
+              key: 'masking',
               target: '_blank',
               title: '',
+              onClick: () => navigate('/masking')
             },
             {
               name: 'Setting',
@@ -73,14 +84,17 @@ const SideBar = ({active}) => {
         },
       };
 
+   
 
-      
      
   return (
     <div className={` ${active?"mobilenav":"sideBarWraper"}`}>
 
 
-<Nav selectedKey="key1" ariaLabel="Nav example with wrapped link text" styles={navStyles} groups={navLinkGroups} />
+<Nav selectedKey={key?key:'/'}
+
+
+ styles={navStyles} groups={navLinkGroups} />
 
 
     </div>

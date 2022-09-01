@@ -1,9 +1,17 @@
 import React from 'react';
-import { PrimaryButton } from '@fluentui/react/lib/Button';
-
+import { PrimaryButton } from '@fluentui/react';
+import { Link, useNavigate } from 'react-router-dom';
 const ButtonPrimary = () => {
+  const navigate=useNavigate()
+  const handleCardRoute=()=>{
+    navigate('/masking/datastore')
+
+
+  }
   return (
-    <PrimaryButton text="Next" className="primary-btn"   />
+
+    <PrimaryButton text="Next" className="primary-btn"  onClick={handleCardRoute}  />
+  
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Label } from '@fluentui/react/lib/Label';
-import { TextField } from '@fluentui/react/lib/TextField';
+import { Label } from '@fluentui/react';
+import { TextField } from '@fluentui/react';
 const TextBox = ({placeText,label}) => {
   return (
 <>

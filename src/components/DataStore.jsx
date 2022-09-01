@@ -1,6 +1,8 @@
 import React from 'react'
 import SearchField from './common/SearchField'
-
+import CardHover from './common/CardHover';
+import ButtonPrimary from './common/ButtonPrimary';
+import ButtonDefault from './common/ButtonDefault'
 const DataStore = () => {
  
   return (
@@ -8,6 +10,13 @@ const DataStore = () => {
         <div className="data-store-search">
         <SearchField width={"45vw"}  />
         </div>
+      
+      <CardHover/>
+
+      <div className="button-box mt-20">
+        <ButtonPrimary />
+        <ButtonDefault />
+      </div>
 
 
       

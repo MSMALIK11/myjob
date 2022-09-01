@@ -4,12 +4,12 @@ import menubtn from "../images/String-icon-waffle.png";
 import person from "../images/download.png";
 
 
-import { SearchBox } from "@fluentui/react/lib/SearchBox";
+import { SearchBox } from "@fluentui/react";
 import {
   Persona,
   PersonaSize,
   PersonaPresence,
-} from "@fluentui/react/lib/Persona";
+} from "@fluentui/react";
 
 
 
@@ -20,7 +20,7 @@ const NavBar = ({active,setActive}) => {
   };
 
   return (
-    <div className={`navBarWraper`}>
+    <div className={`navBarWraper`} data-testid="navBar">
       <div className="nav">
       <div className="menuBtn">
         <div>

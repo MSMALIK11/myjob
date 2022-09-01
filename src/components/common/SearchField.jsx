@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchBox } from "@fluentui/react/lib/SearchBox";
+import { SearchBox } from "@fluentui/react";
 
 const SearchField = ({ width }) => {
   return (

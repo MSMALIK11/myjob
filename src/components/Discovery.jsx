@@ -1,6 +1,8 @@
+
 import React from 'react';
 import AddJob from './AddJob';
-import BreadCrumb from './Breadcrumb';
+import CommandBarNav from './CommandBarNav';
+
 
 const Discovery = () => {
  
@@ -8,12 +10,14 @@ const Discovery = () => {
     <div
     className='discovery'
     >
+      <h3>Discovery</h3>
      
      
       
      
 
-      <AddJob/>
+      {/* <AddJob/> */}
+      <CommandBarNav/>
 
     
     </div>

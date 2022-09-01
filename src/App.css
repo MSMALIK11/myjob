@@ -42,10 +42,10 @@ h1,h2,h3,h4,h5,h6{
 }
 .nav{
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 
 
-  
+
   align-items: center;
   height: 100%;
   padding: 0 20px;
@@ -71,6 +71,12 @@ font-weight: 500;
   padding: 0 20px;
   z-index: 20;
   
+  transition: all 0.6s ;
+}
+
+.link{
+  text-decoration: none;
+
 }
 
 
@@ -132,4 +138,17 @@ font-size: 14px;
   height: 40px;
   align-items: center;
 
+}
+.csv-card-wraper{
+ width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+justify-content: center;
+
+}
+
+.csv-card{
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 10px;
 }
