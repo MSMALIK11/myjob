@@ -4,7 +4,7 @@ import Home from "./Pages/Home";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import SideBar from "./components/sidebar/SideBar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import DataStore from "./components/DataStore";
 import AddJob from "./components/AddJob";
 import { useState } from "react";
@@ -28,12 +28,9 @@ function App() {
             <Route path="/masking/demo" element={<Demo />} />
           </Route>
 
-        
-        <Route path="/" element={<Home active={active}  /> }>
-          <Route   path="/" element={<Discovery/>} />
-
-
-        </Route>
+          <Route path="/" element={<Home active={active} />}>
+            <Route path="/" element={<Discovery />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Announced } from "office-ui-fabric-react";
 import { TextField } from "office-ui-fabric-react";
 import {
@@ -10,7 +10,8 @@ import { MarqueeSelection } from "office-ui-fabric-react";
 import { Fabric } from "office-ui-fabric-react";
 import { mergeStyles } from "office-ui-fabric-react";
 import SideModal from "./common/SideModal";
-
+import AddJob from "./AddJob";
+import { useEffect } from "react";
 
 const exampleChildClass = mergeStyles({
   display: "block",
@@ -23,9 +24,9 @@ const textFieldStyles = {
 
 const DataLists = () => {
   const _allItems = [];
-  const[open,setOpen]=useState(false)
-  
- const[selected,setSelected]=useState([])
+  const [open, setOpen] = useState(false);
+
+  const [selected, setSelected] = useState([]);
   const [selection, setSelection] = useState();
   function _getSelectionDetails() {
     const selectionCount = selection ? selection.getSelectedCount() : 0;
@@ -44,6 +45,8 @@ const DataLists = () => {
     selectionDetails: _getSelectionDetails(),
     columns: [],
   });
+
+  //  handle column click
   const onColumnClick = (ev, column) => {
     const { items, columns } = state;
 
@@ -51,10 +54,9 @@ const DataLists = () => {
     const newColumns = columns.slice();
 
     let currCol = newColumns.filter((currCol) => column.key === currCol.key)[0];
-console.log('log top',currCol);
+
     newColumns.forEach((newCol) => {
       if (newCol === currCol) {
-        console.log("yah");
         currCol.isSortedDescending = !currCol.isSortedDescending;
         currCol.isSorted = true;
         // console.log('newcol',newCol)
@@ -65,8 +67,8 @@ console.log('log top',currCol);
         newCol.isSortedDescending = true;
       }
     });
-    
-    const copyAndSort = (items, columnKey, isSortedDescending=false) => {
+
+    const copyAndSort = (items, columnKey, isSortedDescending = false) => {
       const key = columnKey;
 
       return items
@@ -81,15 +83,15 @@ console.log('log top',currCol);
       currCol.fieldName,
       currCol.isSortedDescending
     );
-    console.log("newItems", newItems);
-    if(newItems){
-        setState({
-            columns: newColumns,
-            items: newItems,
-          });
+
+    if (newItems) {
+      setState({
+        columns: newColumns,
+        items: newItems,
+      });
     }
-   
   };
+  console.log('state',state)
 
   const _columns = [
     {
@@ -145,8 +147,8 @@ console.log('log top',currCol);
       isSorted: true,
       isSortedDescending: false,
       onColumnClick: onColumnClick,
-      onRender: (item) => {
-        return <span>{"2 Days ago"}</span>;
+      onRender: (item, i) => {
+        return <span>{`${i} Days ago`}</span>;
       },
     },
     {
@@ -164,7 +166,7 @@ console.log('log top',currCol);
       },
     },
   ];
-  React.useEffect(() => {
+  useEffect(() => {
     const _selection = new Selection({
       onSelectionChanged: () =>
         setState((prev) => {
@@ -172,6 +174,9 @@ console.log('log top',currCol);
         }),
     });
     setSelection(_selection);
+  }, []);
+
+  useEffect(() => {
     for (let i = 0; i < 5; i++) {
       _allItems.push({
         key: i,
@@ -180,13 +185,10 @@ console.log('log top',currCol);
         status: "progress",
       });
     }
-
- 
     setState((prev) => {
       return { ...prev, items: _allItems, columns: _columns };
     });
   }, []);
-  console.log('state',state.items);
 
   // Populate with items for demos.
 
@@ -196,34 +198,22 @@ console.log('log top',currCol);
       return {
         ...prev,
         items: text
-          ? _allItems.filter((i) => i.name.toLowerCase().indexOf(text) > -1) 
+          ? _allItems.filter((i) => i.name.toLowerCase().indexOf(text) > -1)
           : _allItems,
       };
     });
   };
 
-
   // handle onCLick on  column
   const _onItemInvoked = (item) => {
-   
-    setSelected(item)
-    setOpen(!open)
+    setSelected(item);
+    setOpen(!open);
   };
- console.log('item',selected);
+
   return selection ? (
     <Fabric>
-      <div className={exampleChildClass}>{state.selectionDetails}</div>
+      {/* <div className={exampleChildClass}>{state.selectionDetails}</div> */}
 
-      <Announced message={state.selectionDetails} />
-      <TextField
-        className={exampleChildClass}
-        label="Filter by name:"
-        onChange={(e, t) => _onFilter(e, t ?? "")}
-        styles={textFieldStyles}
-      />
-      <Announced
-        message={`Number of items after filter applied: ${state.items.length}.`}
-      />
       <MarqueeSelection selection={selection}>
         <DetailsList
           items={state.items}
@@ -239,23 +229,13 @@ console.log('log top',currCol);
         />
       </MarqueeSelection>
 
-      <SideModal opened={open} setOpened={setOpen} data={selected} />
+      <SideModal opened={open} setOpened={setOpen} data={selected}>
+        <AddJob />
+      </SideModal>
     </Fabric>
   ) : (
     <div>Loading</div>
   );
 };
-
-function _randomDate(start, end) {
-  const date = new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  );
-  return {
-    value: date.valueOf(),
-    dateFormatted: date.toLocaleDateString(),
-  };
-
-}
-
 
 export default DataLists;

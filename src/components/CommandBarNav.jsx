@@ -32,13 +32,13 @@ const items=[
 ]
 
   return (
-    <div>
+  
 
         <CommandBar
         items={items}
         
         />
-    </div>
+  
   )
 }
 

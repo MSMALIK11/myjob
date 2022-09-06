@@ -4,7 +4,10 @@ import { TextField } from '@fluentui/react';
 const TextBox = ({placeText,label}) => {
   return (
 <>
-<Label htmlFor={"textFieldId"} className="label">{label}</Label>
+{
+  label &&  <Label htmlFor={"textFieldId"} className="label">{label}</Label>
+}
+
       <TextField id={"textFieldId"} placeholder={placeText} className="width" />
       
       </>

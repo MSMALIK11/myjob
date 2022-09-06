@@ -2,8 +2,8 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import BreadCrumb from "../components/Breadcrumb";
 
+const Home = ({active,breadcrumb }) => {
 
-const Home = ({ active, breadcrumb }) => {
   const itemsWithHeading = [
     { text: "Dicsovery", key: "" },
     { text: "New Job", key: "" },

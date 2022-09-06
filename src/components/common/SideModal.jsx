@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideModal = ({opened,setOpened,data}) => {
+const SideModal = ({opened,setOpened,children}) => {
   return (
     <div className={`sideModel-wraper ${opened?"open":''}`}>
 
@@ -13,7 +13,8 @@ const SideModal = ({opened,setOpened,data}) => {
         </div>
 
         <div className="model-body">
-        <p>{data?.name}</p>
+          {children}
+      
         </div>
 
     </div>
