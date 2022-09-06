@@ -11,6 +11,22 @@ import {
   PersonaPresence,
 } from "@fluentui/react";
 
+// const store = () => {
+//   const [name, setname] = useState("Amjad");
+//   const [toggle, setToggle] = useState(false);
+//   const triigrtToggle = () => {
+//     toggle = !toggle
+//   }
+//   return{
+//     name,
+//     setname,
+//     triigrtToggle
+//   }
+// }
+
+
+// import store from '/.';
+// const { name, setname, triigrtToggle } = store();
 
 
 const NavBar = ({active,setActive}) => {

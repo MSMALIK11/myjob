@@ -17,7 +17,7 @@ initializeIcons("https://my.cdn.com/path/to/icons/");
 function App() {
   const [active, setActive] = useState(false);
   return (
-    <div className="App">
+    <div className="App" id="app">
       <BrowserRouter>
         <NavBar active={active} setActive={setActive} />
         <SideBar active={active} />
